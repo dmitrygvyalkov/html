@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>BEM (Block Element Modifer)</title>
+</head>
+<body>
+
+<div><a href="https://ru.bem.info/">Про БЕМ</a></div>
+
+<h1>Основні концепціі</h1>
+<ul>
+  <li>Стилізація дозволяється тільки через класи</li>
+  <li>Назва класів тільки маленькими літерами</li>
+  <li>Формати назв:
+    <ul>
+      <li>Назва блоку: <strong>block</strong>, aбо <strong>nazva-bloku</strong></li>
+      <li>Назва елементу: <strong>block_element</strong></li>
+      <li>Назва модіфікатору: <strong>block--modifer</strong>, або <strong>block_element--modifer</strong></li>
+    </ul>
+  </li>
+  <li>Елемент не може бути сам по собі, він завжди знаходиться в своєму блоку</li>
+</ul>
+
+<h2>Приклади</h2>
+
+<div class="tel tel--no-country-code"><a class="tel_link" href="tel:+380121234567"><span class="tel_country-code">+380</span><span class="tel_code">12</span><span class="tel_num">123<span class="tel_separator"></span>45<span class="tel_separator"></span>67</span></a></div>
+
+<hr>
+
+
+<style>
+
+.tel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+  color: #009;
+}
+
+.tel_link {
+  text-decoration: none;
+}
+
+.tel_country-code {
+  margin-right: 0.3em;
+}
+
+.tel_code {
+  margin-right: 0.3em;
+  font-weight: bold;
+}
+
+.tel_code:before {
+  content: '(';
+}
+
+.tel_code:after {
+  content: ')';
+}
+
+.tel_separator:before {
+  content: ' ';
+}
+
+.tel--no-country-code .tel_country-code {
+  display: none;
+}
+
+.tel--no-country-code .tel_code:before {
+  content: '0';
+}
+
+</style>
+</body>
+</html>
