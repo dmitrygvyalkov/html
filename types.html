@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Базові типи</title>
+</head>
+<body>
+<script>
+"use strict";
+
+var a = 10; // Number, числовий 
+var b = 3.14; // Number, числовий
+var c = "10"; // String, рядок
+var d = [10, 22, 31]; // Array, масив
+var e = {}; // Object, Об`єкт
+var f = function(){}; // function, функція
+
+a = 20; // Присвоєння
+//alert(a + b); // Додавання
+//alert(a + c); // Об'єднання
+//alert(a + b + c);
++c // Спроба привести до типу Number
+
+b = a++;
+/*
+b = a;
+a = a + 1;
+*/
+//alert("b = " + b + " a = " + a); // b = 20 a = 21
+
+b = ++a;
+/*
+a = a + 1;
+b = a;
+*/
+//alert("b = " + b + " a = " + a); // b = 22 a = 22
+
+b += a; // Додати
+/*
+b = b + a;
+*/
+
+a--;
+--a;
+b -= a;
+
+a = 10;
+b = 3;
+c = a / b;
+
+
+c = a % b; // Залишок від ділення
+//alert(c);
+
+c = a * b;
+
+b = b / a;
+b /= a;
+
+console.log(b);
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
