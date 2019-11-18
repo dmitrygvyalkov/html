@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+'use strict';
+
+const MaxNum = 1000000;
+var gameEnd = false;
+
+var max = MaxNum;
+var min = 0;
+
+alert('Загадай число від 0 до ' + MaxNum);
+var j = 0;
+
+while(gameEnd == false) {
+  j++;
+  let current = Math.round((max + min) / 2);
+  switch(prompt("Це " + current +"? Відповідай <, > або =")) {
+    case '<':
+      max = current;
+      break;
+    case '=':
+      gameEnd = true;
+      alert('Ура... Я виграв... Кількість спроб: ' + j);
+      break;
+    case '>':
+    min = current;
+      break;
+  }
+}
+
+
+</script>
+</body>
+</html>
