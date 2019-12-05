@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+'use strict';
+
+var simpleArray = [];
+const lastSimple = 10000;
+
+function isSimpleNum(a) {
+  for (let i = 2; i <= (a / 2); i++) {
+    if (a % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+for (let i = 1; i <= lastSimple; i++) {
+  if (isSimpleNum(i)) {
+    simpleArray[simpleArray.length] = i;
+  }
+}
+
+console.log(simpleArray);
+
+</script>
+</body>
+</html>

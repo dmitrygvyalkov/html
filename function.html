@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Функції</title>
+</head>
+<body>
+<script>
+'use strict';
+
+
+function sum(a, b) {
+  return a + b;
+}
+
+/*
+var sum = function(a, b) {
+  return a + b;
+}
+*/
+/*
+function isSimpleNumber(a) {
+  let isSimple = true;
+  for (let i = 2; i < a; i++) {
+    if (a % i == 0) {
+      isSimple = false;
+      break;
+    }
+  }
+  return isSimple;
+}
+*/
+
+function isSimpleNumber(a) {
+  for (let i = 2, f = a / 2; i <= f; i++) {
+    if (!(a % i)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function max(a, b)
+{
+  return (a > b) ? a : b;
+}
+
+function sumD(a, b) {
+  return 
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script>
+'use strict';
+/*
+var a = {
+  firstName: 'Іван',
+  familyName: 'Пупкін',
+  sex: 'male',
+  city: 'Івано-Франківськ',
+  address: 'вул, Пушкіна, буд. 327, кв. 789',
+
+  getName: function() {
+    return this.firstName + ' ' + this.familyName;
+  },
+
+  getFullAddress: function() {
+    return this.city + ' ' + this.address;
+  },
+
+  getSexUkr: function() {
+    switch (this.sex) {
+      case 'male':
+        return 'чоловіча';
+      case 'female':
+        return 'жіноча';
+      default:
+        return 'невідома';
+    }
+  }
+};
+
+a.sex = 'female';
+
+
+
+console.log(a.getSexUkr());
+*/
+
+var a = {
+  cili: 2,
+  chislenik: 37,
+  znamenik: 8,
+};
+
+var b = {
+  cili: 1,
+  chislenik: 3,
+  znamenik: 12,
+};
+
+function min(a, b) {
+  return a < b ? a : b;
+}
+
+function simple(a) {
+  for (let i = 2; i <= (min(a.chislenik, a.znamenik) / 2); i++) {
+    if ((a.chislenik % i == 0) && (a.znamenik % i == 0)) {
+      a.chislenik = a.chislenik / i;
+      a.znamenik = a.znamenik / i;
+      i--;
+    }
+  }
+
+  return a;
+}
+
+function sum(a, b) {
+
+  var result = {};
+
+  result.cili = a.cili + b.cili;
+
+  result.chislenik = a.chislenik * b.znamenik + b.chislenik * a.znamenik;
+  result.znamenik = a.znamenik * b.znamenik;
+
+  return simple(result);
+
+}
+
+console.log(sum(a, b));
+
+
+</script>
+</body>
+</html>
