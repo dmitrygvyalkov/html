@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+'use strict';
+
+let simple_array = [];
+
+function nod(a, b) {
+  build_simple_array(max(a, b));
+  let a_array = get_simple_multiplier(a);
+  let b_array = get_simple_multiplier(b);
+
+  let result = 1;
+
+  for (let i = 0; i < a_array.length; i++) {
+    let duble = false;
+    for (let j = 0; j < b_array.length; j++) {
+      if (a_array[i] == b_array[j]) {
+        b_array[j] = undefined;
+        result *= a_array[i];
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+
+function nok(a, b) {
+  
+
+  let nok_value = a * b / nod(a, b);
+  
+  return nok_value;
+}
+
+/*
+Повертає більше значення
+*/
+function max(a, b) {
+  return (a > b) ? a : b;
+}
+
+function build_simple_array(a) {
+  for (let i = 2; i <= a; i++) {
+    if (is_simple(i)) {
+      simple_array[simple_array.length] = i;
+    }
+  }
+}
+
+function is_simple(a) {
+  for (let i = 2; i <= a / 2; i++) {
+    if (a % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function get_simple_multiplier(a) {
+  let tmp = a;
+  let simple_multiplier = [];
+  for (let i = 0; tmp != 1; i++) {
+    if (tmp % simple_array[i] == 0) {
+      simple_multiplier[simple_multiplier.length] = simple_array[i];
+      tmp = tmp / simple_array[i];
+      i--;
+    }
+  }
+  return simple_multiplier;
+}
+
+
+console.log(nok(45, 95));
+
+</script>
+
+</body>
+</html>
