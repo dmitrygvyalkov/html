@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+<h1>Поточний ход: <span id="cur">X</span></h1>
+<ul>
+  <li id="winX">X — 0</li>
+  <li id="winO">O — 0</li>
+</ul>
+
+<table>
+  <tr id="tr1">
+    <td id="td11"></td>
+    <td id="td12"></td>
+    <td id="td13"></td>
+  </tr>
+  <tr id="tr2">
+    <td id="td21"></td>
+    <td id="td22"></td>
+    <td id="td23"></td>
+  </tr>
+  <tr id="tr3">
+    <td id="td31"></td>
+    <td id="td32"></td>
+    <td id="td33"></td>
+  </tr>
+</table>
+
+<script>
+'use strict';
+
+let td11 = document.getElementById('td11');
+let currentStep = 'X';
+let cur = document.getElementById('cur');
+
+td11.onclick = function() {
+  td11.innerHTML = currentStep;
+  currentStep = currentStep == 'X' ? 'O' : 'X';
+  cur.innerHTML = currentStep;
+};
+
+</script>
+
+<style>
+
+td {
+  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 60px;
+}
+</style>
+</body>
+</html>

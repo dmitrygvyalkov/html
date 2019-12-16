@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div class="test" id="test">Перший блок</div>
+  <div class="test">Другий блок</div>
+<script>
+'use strict';
+
+let testBlocks = document.querySelectorAll('#test');
+
+testBlocks[0].innerHTML = "Змінили текст";
+
+console.log(testBlocks);
+</script>
+</body>
+</html>

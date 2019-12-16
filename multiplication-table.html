@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Таблиця множення</title>
+</head>
+<body>
+  <h1>Таблиця множення</h1>
+  <div id="table-wrp"></div>
+<script>
+'use strict';
+
+let wrp = document.getElementById('table-wrp');
+let content = '';
+const endNumI = 10;
+const endNumJ = 10;
+
+for (let i = 1; i <= endNumI; i++) {
+  content += '<div><h2>Множення на ' + i + '</h2><hr><ul>';
+  for (let j = 1; j <= endNumJ; j++) {
+    content += '<li>'+i+'x'+j+' = '+i*j+'</li>';
+  }
+  content += '</ul></div>';
+}
+
+
+console.log(content);
+wrp.innerHTML = content;
+</script>
+</body>
+</html>

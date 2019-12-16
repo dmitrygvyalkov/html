@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Основи подій</title>
+</head>
+<body>
+  <h1 id="h1">0</h1>
+  <button id="btn">Лічильник</button>
+
+<script>
+
+'use strict';
+
+let counter = 0;
+
+let h1 = document.getElementById('h1');
+let btn = document.getElementById('btn');
+
+function btnClick() {
+  h1.innerHTML = ++counter;
+}
+
+btn.onclick = btnClick;
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div id="test">
+  <h1>Hi</h1>
+</div>
+
+<div id="test">
+  <h2>Bla-Bla-Bla</h2>
+</div>
+<script>
+'use strict';
+
+let testDiv = document.getElementById("test");
+
+testDiv.innerHTML = '<h1>Привіт</h1>';
+
+console.log(testDiv.innerHTML);
+</script>
+
+
+</body>
+</html>
