@@ -14,34 +14,152 @@
 
 <table>
   <tr id="tr1">
-    <td id="td11"></td>
-    <td id="td12"></td>
-    <td id="td13"></td>
+    <td id="td11" class="td"></td>
+    <td id="td12" class="td"></td>
+    <td id="td13" class="td"></td>
   </tr>
   <tr id="tr2">
-    <td id="td21"></td>
-    <td id="td22"></td>
-    <td id="td23"></td>
+    <td id="td21" class="td"></td>
+    <td id="td22" class="td"></td>
+    <td id="td23" class="td"></td>
   </tr>
   <tr id="tr3">
-    <td id="td31"></td>
-    <td id="td32"></td>
-    <td id="td33"></td>
+    <td id="td31" class="td"></td>
+    <td id="td32" class="td"></td>
+    <td id="td33" class="td"></td>
   </tr>
 </table>
 
 <script>
 'use strict';
 
-let td11 = document.getElementById('td11');
+let tds = document.querySelectorAll('.td');
 let currentStep = 'X';
 let cur = document.getElementById('cur');
+let winXWrp = document.getElementById('winX');
+let winOWrp = document.getElementById('winO');
 
-td11.onclick = function() {
-  td11.innerHTML = currentStep;
-  currentStep = currentStep == 'X' ? 'O' : 'X';
-  cur.innerHTML = currentStep;
+let td11 = document.getElementById('td11');
+let td12 = document.getElementById('td12');
+let td13 = document.getElementById('td13');
+let td21 = document.getElementById('td21');
+let td22 = document.getElementById('td22');
+let td23 = document.getElementById('td23');
+let td31 = document.getElementById('td31');
+let td32 = document.getElementById('td32');
+let td33 = document.getElementById('td33');
+
+let winX = 0;
+let winO = 0;
+
+function newGame() {
+  for (var i = 0; i < tds.length; i++) {
+    tds[i].innerHTML = '';
+  }
+}
+
+function getWinner() {
+  if ((td11.innerHTML === td12.innerHTML) 
+    && (td11.innerHTML === td13.innerHTML)
+    && (td11.innerHTML !== '')
+    ) {
+    return td11.innerHTML;
+  }
+
+  if ((td21.innerHTML === td22.innerHTML) 
+    && (td21.innerHTML === td23.innerHTML)
+    && (td21.innerHTML !== '')
+    ) {
+    return td21.innerHTML;
+  }
+
+  if ((td31.innerHTML === td32.innerHTML) 
+    && (td31.innerHTML === td33.innerHTML)
+    && (td31.innerHTML !== '')
+    ) {
+    return td31.innerHTML;
+  }
+
+  if ((td11.innerHTML === td21.innerHTML) 
+    && (td11.innerHTML === td31.innerHTML)
+    && (td11.innerHTML !== '')
+    ) {
+    return td11.innerHTML;
+  }
+
+  if ((td12.innerHTML === td22.innerHTML) 
+    && (td12.innerHTML === td32.innerHTML)
+    && (td12.innerHTML !== '')
+    ) {
+    return td12.innerHTML;
+  }
+
+  if ((td13.innerHTML === td23.innerHTML) 
+    && (td13.innerHTML === td33.innerHTML)
+    && (td13.innerHTML !== '')
+    ) {
+    return td13.innerHTML;
+  }
+
+  if ((td11.innerHTML === td22.innerHTML) 
+    && (td11.innerHTML === td33.innerHTML)
+    && (td11.innerHTML !== '')
+    ) {
+    return td11.innerHTML;
+  }
+
+  if ((td13.innerHTML === td22.innerHTML) 
+    && (td13.innerHTML === td31.innerHTML)
+    && (td13.innerHTML !== '')
+    ) {
+    return td13.innerHTML;
+  }
+
+  if ((td11.innerHTML !== '') 
+      && (td12.innerHTML !== '') 
+      && (td13.innerHTML !== '') 
+      && (td21.innerHTML !== '') 
+      && (td22.innerHTML !== '') 
+      && (td23.innerHTML !== '') 
+      && (td31.innerHTML !== '') 
+      && (td32.innerHTML !== '') 
+      && (td33.innerHTML !== '') 
+    ) {
+    return '-';
+  }
+  return '';
+}
+
+let step = function(event) {
+  if (this.innerHTML === '') {
+    this.innerHTML = currentStep;
+    currentStep = currentStep == 'X' ? 'O' : 'X';
+    cur.innerHTML = currentStep;
+  }
+  let winner = getWinner();
+  switch(winner) {
+    case 'X':
+      alert('X Win!!!');
+      winX++;
+      winXWrp.innerHTML = 'X — ' + winX;
+      newGame();
+      break;
+    case 'O':
+      alert('O Win!!!');
+      winO++;
+      winOWrp.innerHTML = 'O — ' + winO;
+      newGame();
+      break;
+    case '-':
+      newGame();
+      break;
+  }
 };
+
+for (var i = 0; i < tds.length; i++) {
+  tds[i].addEventListener('click', step);
+  // tds[i].removeEventListener('click', step);
+}
 
 </script>
 
