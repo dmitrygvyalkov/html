@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body class="body">
+
+<button id="left">1</button>
+<button id="right">2</button>
+
+<div id="wrp" class="wrp">
+  <div id="bird" class="bird"></div>
+</div>
+
+<script>
+'use strict';
+
+let btnLeft = document.getElementById('left');
+let btnRight = document.getElementById('right');
+let bird = document.getElementById('bird');
+
+btnLeft.onclick = function(event){
+  let style = getComputedStyle(bird);
+  let currentTop = parseInt(style.top, 10);
+  if (currentTop <= 240) {
+    bird.style.top = (currentTop + 10) + 'px';
+  }
+  
+  
+};
+
+btnRight.onclick = function(event){
+  let style = getComputedStyle(bird);
+  let currentTop = parseInt(style.top, 10);
+  if (currentTop >= 10) {
+    bird.style.top = (currentTop - 10) + 'px';
+  }
+  
+};
+
+</script>
+
+
+<style>
+html, body {
+  height: 100%;
+}
+.wrp {
+  height: 300px;
+  width: 100%;
+  background: #a9b3bd;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  margin-top: -150px;
+}
+
+.bird {
+  width: 50px;
+  height: 50px;
+  background: #090;
+  left: 20%;
+  top: 100px;
+  position: absolute;
+  transition: .5s;
+}
+</style>
+</body>
+</html>
