@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div id="time"></div>
+<script>
+'use strict';
+let div = document.getElementById('time');
+let h = 0, m = 0, s = 0;
+
+setInterval(function(){
+  s++;
+  if (s == 60) {
+    s = 0;
+    m++;
+  }
+  if (m == 60) {
+    m = 0;
+    h++;
+  }
+  div.innerHTML = "" + h + ":" + ((m < 10) ? "0" : "") + m + ":" +
+    ((s < 10) ? "0" : "") + s;
+}, 1000);
+
+</script>
+</body>
+</html>

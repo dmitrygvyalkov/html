@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div id="time"></div>
+<script>
+'use strict';
+let div = document.getElementById('time');
+let sec = 0;
+
+function addSec() {
+  sec++;
+  div.innerHTML = getTimeString(sec);
+}
+
+function getTimeString(timeInSec) {
+  let h, m, s;
+
+  s = timeInSec % 60;
+  m = ((timeInSec - s) / 60) % 60;
+  h = (timeInSec - s - m*60) / 3600;
+
+  let text = "" + h + ":";
+
+  if (m < 10) {
+    text += "0";
+  }
+  text += m + ":";
+
+  if (s < 10) {
+    text += "0";
+  }
+  text += s;
+
+  return text;
+}
+
+setInterval(addSec, 1000);
+
+</script>
+</body>
+</html>
