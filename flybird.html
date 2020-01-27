@@ -6,18 +6,12 @@
 </head>
 <body class="body">
 
-<button id="left">1</button>
-<button id="right">2</button>
-
 <div id="wrp" class="wrp">
   <div id="bird" class="bird"></div>
 </div>
 
 <script>
 'use strict';
-
-let btnLeft = document.getElementById('left');
-let btnRight = document.getElementById('right');
 let bird = document.getElementById('bird');
 
 function goToDown(){
@@ -31,7 +25,10 @@ function goToDown(){
   }
 };
 
-btnRight.onclick = function(event){
+function goToUp(event){
+  if (event.key != "ArrowUp") {
+    return;
+  }
   let style = getComputedStyle(bird);
   let currentTop = parseInt(style.top, 10);
   if (currentTop >= 10) {
@@ -41,6 +38,7 @@ btnRight.onclick = function(event){
 };
 
 let downTaskId = setInterval(goToDown, 15);
+window.onkeyup = goToUp;
 
 </script>
 
